@@ -8,7 +8,7 @@ A Nodejs project based on [THIS TUTORIAL](https://scotch.io/tutorials/build-a-re
 Make sure you have node.js installed
 
 ## Steps
-### On cmd
+### In cmd
 
 ```bash
     npm install
