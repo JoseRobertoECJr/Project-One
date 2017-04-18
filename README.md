@@ -2,6 +2,7 @@
 
 Learning Nodejs<br>
 A Nodejs project based on [THIS TUTORIAL](https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4)
+Use POSTMAN to help you
 
 ## Prerequisites
 
