@@ -38,13 +38,14 @@ router.get('/', function(req, res){
 //More routes for API will happen here
 
 /*
-    Bear routes
+    /bears routes
 */
 router.route('/bears')
 
     //Create a Bear (accessed at POST http://localhost:8080/api/bears)
     .post(function(req, res){
         var bear = new Bear();
+
         bear.name = req.body.name;
 
         bear.save(function(err){
@@ -62,6 +63,57 @@ router.route('/bears')
                 res.send(err);
 
             res.json(bears);
+        });
+    });
+
+/*
+    /bears/:bear_id routes
+*/
+
+router.route('/bears/:bear_id')
+
+    /*
+        Get the bear with the id bear_id
+        (accessed at GET http://localhost:8080/api/bears/:bear_id)
+    */
+    .get(function(req, res){
+        Bear.findById(req.params.bear_id, function(err, bear){
+            if(err)
+                res.send(err);
+            res.json(bear);
+        });
+    })
+
+    /*
+        Update the bear with the id bear_id
+        (accessed at PUT http://localhost:8080/api/bears/:bear_id)
+    */
+    .put(function(req, res){
+        Bear.findById(req.params.bear_id, function(err, bear){
+            if(err)
+                res.send(err);
+
+            bear.name = req.body.name;
+
+            bear.save(function(err){
+                if(err)
+                    res.send(err);
+                res.json([{message: 'Bear updated!'}, bear]);
+            });
+        });
+    })
+
+    /*
+        Delete the bear with the id bear_id
+        (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
+    */
+    .delete(function(req, res){
+        Bear.remove({
+            _id: req.params.bear_id
+        }, function(err, bear){
+            if(err)
+                res.send(err);
+            res.json({message: 'Successfully deleted!'});
         });
     });
 
