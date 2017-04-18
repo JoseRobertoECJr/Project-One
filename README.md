@@ -1,7 +1,7 @@
 # api-RESTful
 
 Learning Nodejs<br>
-A Nodejs project based on [THIS TUTORIAL](https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4)
+A Nodejs project based on [THIS TUTORIAL](https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4)<br>
 Use POSTMAN to help you
 
 ## Prerequisites
